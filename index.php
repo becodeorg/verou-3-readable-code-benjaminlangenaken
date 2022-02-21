@@ -1,7 +1,7 @@
 <?php
 
 // fw = for who
-function ordr_pz($pizzatype, $fw) {
+function orderPizza($pizzatype, $fw) {
 
     $type = $pizzatype;
     echo 'Creating new order... <br>';
