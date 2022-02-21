@@ -1,6 +1,6 @@
 <?php
 
-function calcPrice($pizzaType)
+function calculatePrice($pizzaType)
 {
     $price = 0;
 
@@ -17,18 +17,23 @@ function calcPrice($pizzaType)
     return $price;
 }
 
-function orderPizza($pizzaType, $person) {
-
-    $price = calcPrice($pizzaType);
-
-    $address = '';
-    if($person === 'Koen') {
-        $address = 'A yacht in Antwerp';
+function getAddress($person)
+{
+    if ($person === 'Koen') {
+        return 'A yacht in Antwerp';
     } elseif ($person === 'Manuele') {
-        $address = 'Somewhere in Belgium';
+        return 'Somewhere in Belgium';
     } elseif ($person === 'all students') {
-        $address = 'BeCode office';
+        return 'BeCode office';
+    } else {
+        return '';
     }
+}
+
+function orderPizza($pizzaType, $person)
+{
+    $price = calculatePrice($pizzaType);
+    $address = getAddress($person);
 
     $toPrint = "Creating new order...
 
