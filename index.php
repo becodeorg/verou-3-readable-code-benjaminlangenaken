@@ -13,17 +13,19 @@ function orderPizza($pizzaType, $person) {
         $address = 'BeCode office';
     }
 
-    $toPrint = "Creating new order...<br><br>
-                A {$pizzaType} pizza should be sent to {$person}.<br>
-                The address: {$address}.<br>
-                The bill is €{$price}.<br><br>
-                Order finished.<br><br><br>";
+    $toPrint = "Creating new order...
 
-    echo $toPrint;
-}
+                A {$pizzaType} pizza should be sent to {$person}.
+                The address: {$address}.
+                The bill is €{$price}.
+                
+                Order finished.
+                --------------------------------------------------
+                
+                
+                ";
 
-function totalPrice($price) {
-    return $price;
+    echo nl2br($toPrint);
 }
 
 function calcPrice($pizzaType)
@@ -39,14 +41,10 @@ function calcPrice($pizzaType)
     } else if ($pizzaType === 'hawaii') {
         echo "Computer says no";
     }
+
     return $price;
 }
 
-function orderPizzaAll()
-{
-    orderPizza('calzone', 'Koen');
-    orderPizza('marguerita', 'Manuele');
-    orderPizza('golden', 'all students');
-}
-
-orderPizzaAll();
+orderPizza('calzone', 'Koen');
+orderPizza('marguerita', 'Manuele');
+orderPizza('golden', 'all students');
