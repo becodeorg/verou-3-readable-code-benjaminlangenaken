@@ -1,10 +1,27 @@
 <?php
 
+function calcPrice($pizzaType)
+{
+    $price = 0;
+
+    if ($pizzaType === 'marguerita') {
+        $price = 5;
+    } else if ($pizzaType === 'golden') {
+        $price = 100;
+    } else if ($pizzaType === 'calzone') {
+        $price = 10;
+    } else if ($pizzaType === 'hawaii') {
+        echo 'Computer says no';
+    }
+
+    return $price;
+}
+
 function orderPizza($pizzaType, $person) {
 
     $price = calcPrice($pizzaType);
 
-    $address = "";
+    $address = '';
     if($person === 'Koen') {
         $address = 'A yacht in Antwerp';
     } elseif ($person === 'Manuele') {
@@ -26,23 +43,6 @@ function orderPizza($pizzaType, $person) {
                 ";
 
     echo nl2br($toPrint);
-}
-
-function calcPrice($pizzaType)
-{
-    $price = 0;
-
-    if ($pizzaType === 'marguerita') {
-        $price = 5;
-    } else if ($pizzaType === 'golden') {
-        $price = 100;
-    } else if ($pizzaType === 'calzone') {
-        $price = 10;
-    } else if ($pizzaType === 'hawaii') {
-        echo "Computer says no";
-    }
-
-    return $price;
 }
 
 orderPizza('calzone', 'Koen');
