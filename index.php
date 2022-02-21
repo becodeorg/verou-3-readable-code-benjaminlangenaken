@@ -3,27 +3,26 @@
 function orderPizza($pizzaType, $person) {
 
     $type = $pizzaType;
-    echo 'Creating new order... <br>';
-    $toPrint = 'A ';
-    $toPrint .= $pizzaType;
     $price = calcPrice($type);
 
     $address = 'unknown';
-    if($person === 'koen')
+    if($person === 'Koen')
     {
         $address = 'a yacht in Antwerp';
-    } elseif ($person === 'manuele')
+    } elseif ($person === 'Manuele')
     {
         $address = 'somewhere in Belgium';
-    } elseif ($person === 'students') {
+    } elseif ($person === 'all students') {
         $address = 'BeCode office';
     }
 
-    $toPrint .=   ' pizza should be sent to ' . $person . ". <br>The address: {$address}.";
-    echo $toPrint.'<br>';
-    echo'The bill is €'.$price.'.<br>';
+    $toPrint = "Creating new order...<br><br>
+                A {$pizzaType} pizza should be sent to {$person}.<br>
+                The address: {$address}.<br>
+                The bill is €{$price}.<br><br>
+                Order finished.<br><br><br>";
 
-    echo "Order finished.<br><br>";
+    echo $toPrint;
 }
 
 function totalPrice($price) {
@@ -36,37 +35,26 @@ function test($pizzaType) {
 
 function calcPrice($pizzaType)
 {
-    $price = 'unknown';
+    $price = 0;
 
     if ($pizzaType === 'marguerita') {
         $price = 5;
+    } else if ($pizzaType === 'golden') {
+        $price = 100;
+    } else if ($pizzaType === 'calzone') {
+        $price = 10;
+    } else if ($pizzaType === 'hawaii') {
+        echo "Computer says no";
     }
-    else
-    {
-        if ($pizzaType === 'golden')
-        {
-            $price = 100;
-        }
-
-        if ($pizzaType === 'calzone')
-        {
-            $price = 10;
-        }
-
-        if ($pizzaType === 'hawaii') {
-            throw new Exception('Computer says no');
-        }
-    }
-
     return $price;
 }
 
 function orderPizzaAll()
 {
     $test= 0;
-    orderPizza('calzone', 'koen');
-    orderPizza('marguerita', 'manuele');
-    orderPizza('golden', 'students');
+    orderPizza('calzone', 'Koen');
+    orderPizza('marguerita', 'Manuele');
+    orderPizza('golden', 'all students');
 }
 
 function makeAllHappy() {
