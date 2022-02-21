@@ -2,16 +2,13 @@
 
 function orderPizza($pizzaType, $person) {
 
-    $type = $pizzaType;
-    $price = calcPrice($type);
+    $price = calcPrice($pizzaType);
 
-    $address = 'unknown';
-    if($person === 'Koen')
-    {
-        $address = 'a yacht in Antwerp';
-    } elseif ($person === 'Manuele')
-    {
-        $address = 'somewhere in Belgium';
+    $address = "";
+    if($person === 'Koen') {
+        $address = 'A yacht in Antwerp';
+    } elseif ($person === 'Manuele') {
+        $address = 'Somewhere in Belgium';
     } elseif ($person === 'all students') {
         $address = 'BeCode office';
     }
@@ -27,10 +24,6 @@ function orderPizza($pizzaType, $person) {
 
 function totalPrice($price) {
     return $price;
-}
-
-function test($pizzaType) {
-    echo "Test: type is {$pizzaType}.<br>";
 }
 
 function calcPrice($pizzaType)
@@ -51,14 +44,9 @@ function calcPrice($pizzaType)
 
 function orderPizzaAll()
 {
-    $test= 0;
     orderPizza('calzone', 'Koen');
     orderPizza('marguerita', 'Manuele');
     orderPizza('golden', 'all students');
 }
 
-function makeAllHappy() {
-        orderPizzaAll();
-}
-
-makeAllHappy();
+orderPizzaAll();
